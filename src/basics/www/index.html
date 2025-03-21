@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 监听页面可见性变化事件
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            // 页面变为不可见
+            console.log('页面处于非激活状态');
+        } else {
+            // 页面变为可见
+            console.log('页面处于激活状态');
+        }
+    });
+
+    // 还可以使用document.visibilityState属性来获取当前的可见性状态
+    console.log('当前页面状态:', document.visibilityState === "visible");
+
+</script>
+
+</html>

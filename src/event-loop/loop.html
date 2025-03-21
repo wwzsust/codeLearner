@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    /**
+     * 事件循环分为宏任务和微任务
+     * 宏：script代码块，setTimeout,setInterval
+     * 微：Promise
+     * 
+     * 顺序：先执行一个宏任务，如果没有微任务跟着，就执行下一个宏任务。
+     * 如果有微任务跟随，就一直执行完这个跟屁虫的微任务直到执行完所有的微任务，就进行下一次的宏任务
+     * 
+     * 这里有一点特别强调：Promise中参数中的函数属于正常的代码块执行完就完了，就像一个console.log()一样，
+     * 只有then后面的才是微任务。
+    */
+
+    console.log(1);
+
+    setTimeout(() => {
+      console.log(3);
+    }, 0);
+
+    new Promise((resolve) => {
+      console.log(4);
+      resolve();
+      setTimeout(() => {
+        console.log(6);
+      }, 0);
+    }).then(() => {
+      console.log(5);
+    });
+
+    console.log(2);
+
+    // 1 2 4 5 3 6
+  </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            minmax(),第一个参数是最小值，第二个参数是最大值，
+            当空间满足时，显示最大值，
+            当空间不足时，使用最小值
+            当空间不满足最大值且大于最小值时，则取值为最小值与最大值中间的值
+        */
+        section{
+            height: 500px;
+            width: 500px;
+            display: grid;
+            grid-template-rows: 200px 160px minmax(100px, 200px);
+            grid-template-columns: repeat(3, 100px);
+            border: 1px solid red;
+        }
+        div{
+            padding: 5px;
+            background-color: aqua;
+            background-clip: content-box;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            想要快速偏移位置可以使用span来指定单元格的个数，例：grid-column-end: span 2;表示在列上占2个单元格
+        */
+        section{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+        }
+        div{
+            background-color: aqua;
+            font-size: large;
+        }
+        .box1{
+            /* grid-column-start: 2;
+            grid-column-end: span 2; */
+            /* 简写方式 */
+            grid-column: 2/ span 2;
+            grid-row: 2 / 3;
+            display: grid;
+            place-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box1">box1</div>
+        
+    </section>
+</body>
+</html>

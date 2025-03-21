@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            使用网格线命名合并单元格，有两种方式：
+            1. 使用repeat函数，例：repeat(3, [r-start] 1fr [r-end]);
+            2. 使用单个值，例：grid-template-rows: [r-start-1] 100px [r-end-1 r-start-2] 100px [r-end-2 r-start-3] 100px [r-end-3];
+
+            合并时只需要指定开始命名的起点线的名字和结束时线的名字
+        */
+        section{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            /* grid-template-rows: repeat(3, [r-start] 1fr [r-end]);
+            grid-template-columns: repeat(3, [c-start] 1fr [c-end]); */
+            grid-template-rows: [r-start-1] 100px [r-end-1 r-start-2] 100px [r-end-2 r-start-3] 100px [r-end-3];
+            grid-template-columns: [c-start-1] 100px [c-end-1 c-start-2] 100px [c-end-2 c-start-3] 100px [c-end-3];
+        }
+        div{
+            background-color: aqua;
+            font-size: large;
+        }
+        .box1{
+            /* grid-row: r-start 1 / r-start 2;
+            grid-column: c-start 1 / c-end 3; */
+            grid-row: r-start-1 / r-start-2;
+            grid-column: c-start-1 / c-end-3;
+            display: grid;
+            place-items: center;
+        }
+        .box2{
+            /* grid-row: r-start 3 / r-end 4;
+            grid-column: c-start 2 / c-end 4; */
+            grid-row: r-start-3 / r-end-3;
+            grid-column: c-start-2 / c-end-3;
+            display: grid;
+            place-items: center;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+    </section>
+</body>
+</html>

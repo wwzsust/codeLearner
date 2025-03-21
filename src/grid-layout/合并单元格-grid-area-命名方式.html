@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-area</title>
+    <style>
+        /* 
+            grid-template-areas: "logo header"
+                                "nav main"
+                                "footer footer";
+            当我们使用上述grid-template-areas给元素命名时，也会给区域的每条边命名，
+            logo-start、logo-end、header-start、header-end等。
+            在使用grid-area时也可以使用logo-start、logo-end这些边的命名方式指定区域，
+
+
+            grid-template-areas命名省略，在不需要使用的单元格命名时，可以省略不必命名，
+            具体写法： grid-template-areas: ". .", 或者"... ..."
+        */
+        section{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: 90px auto 90px;
+            grid-template-columns: 70px auto;
+            grid-template-areas: "logo header"
+                                "nav main"
+                                "footer footer";
+        }
+        header{
+            background-color: blueviolet;
+            font-size: large;
+            padding: 5px;
+            background-clip: content-box;
+            display: grid;
+            place-items: center;
+            color: #fff;
+        }
+        
+        header{
+            grid-area: logo-start/logo-start/nav-end/nav-end;
+        }
+      
+    </style>
+</head>
+<body>
+    <section>
+        <header>Header</header>
+        <!-- <nav>Nav</nav>
+        <main>Main</main>
+        <footer>Footer</footer> -->
+    </section>
+</body>
+</html>

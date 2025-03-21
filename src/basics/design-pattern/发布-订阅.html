@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="bus.emit('sayHello', '小明')">点击</button>
+</body>
+<script>
+    class EventBus {
+        constructor() {
+            // 存储所有事件和订阅者
+            this.events = {};
+        }
+
+        // 订阅事件
+        on(eventName, callback) {
+            if (!this.events[eventName]) {
+                this.events[eventName] = [];
+            }
+            this.events[eventName].push(callback);
+        }
+
+        // 发布事件
+        emit(eventName, data) {
+            if (this.events[eventName]) {
+                this.events[eventName].forEach(callback => callback(data));
+            }
+        }
+    }
+
+    // 使用示例
+    const bus = new EventBus();
+
+    // 订阅事件
+    bus.on('sayHello', (name) => {
+        console.log(`你好, ${name}!`);
+    });
+
+    // 发布事件
+    // bus.emit('sayHello', '小明');  // 输出: 你好, 小明!
+</script>
+
+</html>

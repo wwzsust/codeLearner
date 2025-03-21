@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            grid-template-rows,grid-template-columns
+            这两个属性可以有多种设置值的方式，
+            1. 直接使用单位的 100px
+            2. 使用百分比 20%
+            3. 使用repeat函数
+                1). grid-template-rows: repeat(2, 50%)表示分两行，每一行占50%
+                2). repeat(2, 100px 50px)表示一行占100px,下一行占50px，并且重复两次，也就是分4行
+        */
+        section{
+            width: 300px;
+            height: 300px;
+            display: grid;
+            grid-template-rows: repeat(2, 50%);
+            grid-template-columns: repeat(5, 20%);
+        }
+        div{
+            background-color: blueviolet;
+            border: 1px solid black;
+            background-clip: content-box;
+            padding: 5px;
+            color: white;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </section>
+</body>
+
+</html>

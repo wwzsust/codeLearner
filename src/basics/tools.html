@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result" style="font-size: 20px; padding: 20px; color: #333;"></div>
+</body>
+<script>
+    let count = 0;
+    // const start = performance.now(); // 使用 performance.now() 记录开始时间
+    
+    // for (let i = 0; i < 1581120; i++) {
+    //     count = i;
+    // }
+    
+    // // 方法1：使用 performance.now() 计算
+    // const end = performance.now();
+    // const timeSpent = end - start;
+    // document.getElementById('result').innerHTML = `执行时间：${timeSpent.toFixed(2)}毫秒`;
+
+    // 方法2：使用 console.time 配合回调
+    console.time("c");
+    for (let i = 0; i < 1581120; i++) {
+        count = i;
+    }
+    console.timeEnd("c", (time) => {
+        console.log(11);
+        
+        document.getElementById('result').innerHTML = `执行时间：${time}`;
+    });
+</script>
+</html>

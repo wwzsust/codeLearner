@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            gird布局合并单元格，只需要指定开始的位置和结束的位置即可，这样就能把中间的单元格合并，也可以说指定某个单元格的大小和位置
+            方式有两种：
+                1. grid-row-start,gird-row-end; grid-column-start, grid-column-end
+                2. 符合属性，gird-row,grid-column
+        */  
+        section{
+            height: 500px;
+            width: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: repeat(4, 100px);
+            grid-template-columns: repeat(4, 100px);
+            place-content: center center;
+        }
+        div{
+            background-color: aqua;
+            font-size: larger;
+            border: 1px dashed red;
+        }
+        .box1{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            display: grid;
+            place-items: center center;
+        }
+        .box2{
+            grid-row: 3/5;
+            grid-column: 2/3;
+            display: grid;
+            place-items: center center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box1">box1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div class="box2">box2</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+    </section>
+</body>
+</html>

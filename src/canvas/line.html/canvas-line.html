@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="500" id="canvas"></canvas>
+    <script>
+        function draw(){
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            
+            // 在canvas中绘制一条直线时需要注意beginPath()方法
+            // 因为canvas中绘制图形时，默认是闭合的，所以需要使用beginPath()方法来创建一个新的路径
+            // 否则会绘制出一条闭合的直线
+
+            
+            ctx.beginPath();
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "rgb(0,200,0)";
+            ctx.moveTo(340,200);
+            ctx.lineTo(100,100);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

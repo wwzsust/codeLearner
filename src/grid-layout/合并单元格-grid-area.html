@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-area</title>
+    <style>
+        /* 
+            区域方式合并单元格：grid-area
+            gird-area: 1/2/3/4, 四个参数分别是：row开始位置/column开始位置/row结束位置/column结束位置，
+            grid-area参数还可以是命名。
+        */
+        section{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+        }
+        div{
+            background-color: aqua;
+            font-size: large;
+        }
+        .box1{
+            grid-area: 2/2/3/3;
+            display: grid;
+            place-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box1">box1</div>
+        
+    </section>
+</body>
+</html>

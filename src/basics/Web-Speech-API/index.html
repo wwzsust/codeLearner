@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Web Speech API</h1>
+    <div id="textContainer">
+        Lesson 1<br>
+        Excuse me!<br>
+        Yes?<br>
+        Is this your handbag?<br>
+        Pardon?<br>
+        Is this your handbag?<br>
+        Yes, it is.<br>
+        Thank you very much.
+    </div>
+    <div id="controls">
+        <button onclick="playAudio()">Play Audio</button>
+        <input type="number" id="startOffset" value="0" step="0.1" min="0"> 秒后开始
+    </div>
+    <audio id="audioPlayer" src="./1.mp3"></audio>
+</body>
+<script>
+    function playAudio() {
+        const audioPlayer = document.getElementById('audioPlayer');
+        const textContainer = document.getElementById('textContainer');
+        const startOffset = parseFloat(document.getElementById('startOffset').value) || 0;
+        const lines = textContainer.innerHTML.split('<br>');
+        
+        // 定义每行文本对应的时间戳（秒）
+        const timestamps = [
+            startOffset,      // "Lesson 1"
+            startOffset + 1.0,  // "Excuse me!"
+            startOffset + 2.5,  // "Yes?"
+            startOffset + 3.5,  // "Is this your handbag?"
+            startOffset + 5.0,  // "Pardon?"
+            startOffset + 6.0,  // "Is this your handbag?"
+            startOffset + 7.5,  // "Yes, it is."
+            startOffset + 8.5   // "Thank you very much."
+        ];
+
+        // 开始播放音频
+        audioPlayer.play();
+
+        // 监听音频时间更新事件
+        audioPlayer.ontimeupdate = function() {
+            const currentTime = audioPlayer.currentTime;
+            
+            // 找到当前应该高亮的行
+            let currentLineIndex = -1;
+            for(let i = 0; i < timestamps.length; i++) {
+                if(currentTime >= timestamps[i] && 
+                   (i === timestamps.length - 1 || currentTime < timestamps[i + 1])) {
+                    currentLineIndex = i;
+                    break;
+                }
+            }
+
+            // 更新文本显示
+            textContainer.innerHTML = lines.map((line, index) => 
+                `<span style="color: ${index === currentLineIndex ? 'red' : 'black'}">${line}</span>`
+            ).join('<br>');
+        };
+
+        // 音频播放结束时重置样式
+        audioPlayer.onended = function() {
+            textContainer.innerHTML = lines.join('<br>');
+        };
+    }
+</script>
+
+</html>

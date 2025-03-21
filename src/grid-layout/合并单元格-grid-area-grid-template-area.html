@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-area</title>
+    <style>
+        /* 
+            给区域命名并且使用grid-area合并。
+            grid-template-area分别给每个单元格命名，
+            使用grid-area分别对命名的区域合并
+        */
+        section{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: 90px auto 90px;
+            grid-template-columns: 70px auto;
+            grid-template-areas: "header header"
+                                "nav main"
+                                "footer footer";
+        }
+        header, nav, main, footer{
+            background-color: aqua;
+            font-size: large;
+            padding: 5px;
+            background-clip: content-box;
+        }
+        
+        header{
+            grid-area: header;
+        }
+        nav{
+            grid-area: nav;
+        }
+        main{
+            grid-area: main;
+        }
+        footer{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <header>Header</header>
+        <nav>Nav</nav>
+        <main>Main</main>
+        <footer>Footer</footer>
+    </section>
+</body>
+</html>

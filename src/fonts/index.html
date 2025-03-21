@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>fonts</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'LongCang';
+            src: url('./LongCang-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Lora';
+            src: url('./Lora/Lora-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Mate';
+            src: url('./Mate/Mate-Regular.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Noto_Serif_SC';
+            src: url('./Noto_Serif_SC/NotoSerifSC-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+
+        h2,p{
+        	width: 900px;
+        	margin: 0 auto;
+            font-size: 18px;
+        }
+
+        h2{
+            text-align: center;
+            font-family: 'LongCang', sans-serif;
+        }
+
+        .zh{
+        	font-family: 'LongCang', sans-serif;
+            font-style: italic;
+            margin: 50px auto;
+        }
+
+        .zh-1{
+            font-family: 'Noto_Serif_SC', sans-serif;
+            margin: 50px auto;
+        }
+
+        .en{
+        	font-family: 'Lora', sans-serif;
+        }
+
+        strong{
+            font-family: 'Mate', sans-serif;
+/*            font-weight: 400;*/
+font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>字体设置</h2>
+    <p class="zh">
+        在开发阶段，<strong>Vite</strong> 将 <strong>esnext </strong>作为转换目标，因为我们假设使用的是现代浏览器，它支持所有最新的 <strong>JavaScript</strong> 和 <strong>CSS </strong>特性。这样可以防止语法降级，让 <strong>Vite</strong> 尽可能地接近原始源代码。
+
+        对于生产构建，默认情况下 <strong>Vite</strong> 的目标浏览器支持 原生 <strong>ES</strong> 模块、原生 <strong>ESM</strong> 动态导入 和 	<strong>import.meta</strong>。旧版浏览器可以通过官方的 <strong>@vitejs/plugin-legacy</strong>。查看 构建生产环境 了解更多细节
+    </p>
+    <p class="zh-1">
+        Vite 可以使用插件进行扩展，这得益于 Rollup 优秀的插件接口设计和一部分 Vite 独有的额外选项。这意味着 Vite 用户可以利用 Rollup 插件的强大生态系统，同时根据需要也能够扩展开发服务器和 SSR 功能
+    </p>
+
+    <p class="en">
+    	Our public CDN is built to be used in production by even the largest websites. Performance is monitored at all times, and we are always looking into new technologies and providers that may further improve our CDN. Downtime, timeouts or slow responses are simply unacceptable.
+
+    	We do everything possible to ensure our CDN will NEVER break any websites regardless of use-case. If a file is available via our CDN we assume its used in production and make sure that file will 	continue to work no matter what.
+    </p>
+</body>
+</html>

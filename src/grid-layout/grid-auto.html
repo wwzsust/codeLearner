@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+            grid-template-rows,grid-template-columns中auto和auto-fill属性
+            auto: 可以用在repeat函数中和单独写
+            auto-fill: 只能应用在repeat函数中的第一个参数，
+            比如repeat(auto-fill, 20%)表示自动填充每一份占20%，未分配的空间将空余
+        */
+        section{
+            width: 600px;
+            height: 500px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-rows: 100px auto 100px;
+            grid-template-columns: repeat(auto-fill, 20%);
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            background-clip: content-box;
+            padding: 5px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </section>
+    <span>
+        test span
+    </span>
+</body>
+</html>
