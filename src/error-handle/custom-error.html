@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class PaymentError extends Error {
+        constructor(code,message) {
+            super(message);
+            this.name = "CustomError";
+            // 这些是可以与后端协商好的错误码
+            const codeMessageMap = {
+                100: "你没有足够的资金完成这笔付款",
+                103: "不支持的货币类型"
+            };
+            this.userMessage = codeMessageMap[code] || "An error occurred with your payment";
+            this.code = code;
+            this.timestamp = new Date();
+        }
+    }
+
+    // 这里是一个模拟的支付函数
+    function makePayment(amount = 90, currency) {
+        const payment = 100;
+        if (amount - payment < 0) {
+            throw new PaymentError(100, `用户余额${amount}元，但是在支付${payment}元`);
+        } else if (currency !== "CNY") {
+            throw new PaymentError(103, `用户使用的货币类型${currency}`);
+        } else {
+            console.log("Payment processed successfully");
+        }
+    }
+    try{
+        makePayment(10, "CNY");
+    }catch(e) {
+        if (e instanceof PaymentError) { // 判断是否是自定义的错误
+            alert(e.userMessage);   // 用户友好的提示
+            // 这里可以看到到错误的详细信息
+            // 用户没有必要知道的错误信息
+            console.log(`msg: ${e.message}, errorCode: ${e.code}, time: ${e.timestamp}`);
+        } else {
+            // 其他错误，比如语法错误等，一些默认错误
+            console.error("An unexpected error occurred:", e);
+        }
+    }
+    
+</script>
+</html>
